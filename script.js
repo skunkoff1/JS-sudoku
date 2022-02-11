@@ -4,6 +4,7 @@ let btn = document.getElementById('btn');
 btn.addEventListener('click', verify);
 let count = 0;
 let value = 0;
+let win = false;
 
 
 // remplir le tableau HTML
@@ -18,6 +19,7 @@ for (let x = 0; x < 9; x++) {
 }
 
 function verify() {
+    win =true;
     count = 0;
     let image = new Array(9);
     for (let i = 0; i < 9; i++) {
@@ -61,6 +63,7 @@ function verify() {
             for (let j = i + 1; j < 9; j++) {
                 if ((image[x][i] == image[x][j]) && image[x][i] != 0) {
                     id.push(x * 9 + i, x * 9 + j);
+                    win =false;
                     let line = ObjTableau.childNodes[x].childNodes;
                     for (const elmt of line) {
                         elmt.style.backgroundColor = "orange";
@@ -68,6 +71,7 @@ function verify() {
                 }
                 if ((image[i][x] == image[j][x]) && image[i][x] != 0) {
                     id.push(i * 9 + x, j * 9 + x);
+                    win=false;
                     let block = "col" + (x);
                     let column = document.getElementsByClassName(block);
                     for (const elmt of column) {
@@ -116,6 +120,7 @@ function verify() {
             for (let j = i + 2; j < 18; j += 2) {
                 if ((image2[x][i] == image2[x][j]) && image2[x][i] != 0) {
                     id.push(image2[x][i + 1], image2[x][j + 1]);
+                    win=false;
                     colorSquare(x);
                 }
             }
@@ -124,6 +129,11 @@ function verify() {
     for (const elmt of id) {
         let block = document.getElementById(elmt);
         block.style.backgroundColor = "red";
+    }
+    if(win == true) {
+        console.log("gagné !");
+        let message = document.getElementById("message");
+        message.style.display ="block";
     }
 }
 

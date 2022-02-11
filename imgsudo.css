@@ -1,9 +1,26 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;  
+  background-color:rgb(36, 20, 43);
+  color:white;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 table,
 td {
     border: 1px solid rgb(0, 0, 0);
     margin: 5px;
     border-collapse: collapse;
+    background-color: white;
 }
+
 
 td {
     width: 60px;
@@ -42,4 +59,13 @@ input {
 input:active,
 input:focus {
     outline: none;
+}
+
+#message {
+    display:none;
+    position:absolute;
+    padding:50px 100px;
+    background-color:rgb(70, 8, 70);
+    color:white;
+    border : 10px solid rgb(194, 194, 22);
 }
