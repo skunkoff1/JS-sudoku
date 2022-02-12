@@ -37,6 +37,7 @@ function verify() {
         for (let y = 0; y < 9; y++) {
             if (lines[y].firstChild.value == '') {
                 value = "0";
+                win=false;
             } else {
                 value = parseInt(lines[y].firstChild.value);
             }
